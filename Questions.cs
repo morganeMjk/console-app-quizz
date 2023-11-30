@@ -83,6 +83,9 @@ namespace Quizz
             {
                 Console.WriteLine($"{index + 1}. {currentQuestion.Options[index]}");
             }
+
+            questions.Remove(currentQuestion);
+
             return currentQuestion;
         }
 
