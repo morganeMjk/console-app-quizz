@@ -4,14 +4,13 @@ namespace Quizz;
 
 public static class Response
 {
-    public static void Verify(Question currentQuestion)
+    public static bool Verify(Question currentQuestion, string userResponse)
     {
-        var userResponse = Console.ReadLine();
-
         // Vérifier si la réponse de l'utilisateur est un int, et qu'elle est incluse parmis les choix possibles
         if (!int.TryParse(userResponse, out int userResponseInt) || userResponseInt < 1 || userResponseInt > currentQuestion.Options.Count)
         {
             Console.WriteLine("Erreur : Veuillez saisir une réponse valide.");
+            return false;
         }
         else
         {
@@ -21,12 +20,14 @@ public static class Response
                 Console.WriteLine("Bonne réponse :)");
                 Console.WriteLine("Appuyez sur une touche pour continuer");
                 Console.ReadLine();
+                return true;
             }
             else
             {
                 Console.WriteLine("Mauvaise réponse :(");
                 Console.WriteLine("Appuyez sur une touche pour continuer");
                 Console.ReadLine();
+                return false;
             }
         }
     }

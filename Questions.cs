@@ -59,13 +59,12 @@ namespace Quizz
 
 
         // Méthode GetRandomOne
-        public static void GetRandomOne(List<Question> questions)
+        public static Question GetRandomOne(List<Question> questions)
         {
             // Vérifier la nullité et la validité de la liste de questions
             if (questions == null || questions.Count == 0)
             {
                 Console.WriteLine("Aucune question disponible.");
-                return;
             }
 
             // Générer une instance de la classe Random
@@ -84,8 +83,7 @@ namespace Quizz
             {
                 Console.WriteLine($"{index + 1}. {currentQuestion.Options[index]}");
             }
-
-            Response.Verify(currentQuestion);
+            return currentQuestion;
         }
 
 
