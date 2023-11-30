@@ -28,7 +28,7 @@ namespace Quizz
                         string[] parts = line.Split(';');
 
                         // Vérifier que chaque ligne comporte bien 3 éléments (questions, choix, réponse)
-                        if (parts.Length == 3)
+                        if (parts.Length == 4)
                         {
                             // Créer une nouvelle question en suivant la classe Question
                             Question question = new Question
