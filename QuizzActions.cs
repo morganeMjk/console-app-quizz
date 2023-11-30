@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Net;
 
 namespace Quizz;
 
@@ -16,9 +15,6 @@ public static class QuizzActions
         for (int i = 0; i < 3 && questions.Count > 0; i++)
         {
             Questions.GetRandomOne(questions);
-
-            // Demander sa réponse à l'utilisateur
-            var userResponse = Console.ReadLine();
         }
 
         Finish();
@@ -30,26 +26,25 @@ public static class QuizzActions
     // Méthode Finish
     public static void Finish()
     {
-        // Afficher le score après avoir posé les trois questions
+        // Afficher le score après avoir posé toutes les questions
         Console.WriteLine($"Votre score final : \n");
         Console.WriteLine("Que souhaitez-vous faire ?");
 
         // Définir & afficher les différents choix possibles pour l'utilisateur
-        var nextSteps = new List<string> { "Retourner au menu principal", "Quitter" };
-        foreach (var nextStep in nextSteps)
+        var nextActions = new List<string> { "Retourner au menu principal", "Quitter" };
+        foreach (var nextAction in nextActions)
         {
-            Console.WriteLine($"{nextSteps.IndexOf(nextStep) + 1}. {nextStep}");
+            Console.WriteLine($"{nextActions.IndexOf(nextAction) + 1}. {nextAction}");
         }
 
-        var userStep = Console.ReadLine();
+        var selectedAction = Console.ReadLine();
 
-        // Vérification : si le choix de l'utilisateur (conversion) est valide et est égale à 1, appel de la méthode Steps. Sinon, arrêt du programme
-        if (int.TryParse(userStep, out int userStepInt) && userStepInt == 1)
+        // Si le choix de l'utilisateur = 1, l'utilisateur est redirigé vers le menu principal
+        if (int.TryParse(selectedAction, out int selectedActionInt) && selectedActionInt == 1)
         {
-            Console.Clear();
+            Console.WriteLine("Que souhaitez vous faire ?");
+            var actions = Actions.GetAll();
+            Actions.Select(actions);
         }
-        
-        Console.ReadLine();
     }
-
 }

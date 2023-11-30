@@ -7,6 +7,10 @@ namespace Quizz
     public static class Questions
     {
         private const int indexQuestionText = 0;
+        private const int indexOptions = 1;
+        private const int indexCorrectOption = 2;
+
+
 
         // Méthode FetchAll
         public static List<Question> FetchAll()
@@ -30,8 +34,8 @@ namespace Quizz
                             Question question = new Question
                             {
                                 QuestionText = parts[indexQuestionText],
-                                Options = new List<string>(parts[1].Split('/')),
-                                CorrectOptionIndex = int.Parse(parts[2])
+                                Options = new List<string>(parts[indexOptions].Split('/')),
+                                CorrectOptionIndex = int.Parse(parts[indexCorrectOption])
                             };
 
                             // Ajouter la question à la liste
@@ -52,27 +56,42 @@ namespace Quizz
             return questions;
         }
 
-        // Méthode GetByCategory
 
-        
 
         // Méthode GetRandomOne
         public static void GetRandomOne(List<Question> questions)
         {
-            // Générer une instance de la classe Random()
+            // Vérifier la nullité et la validité de la liste de questions
+            if (questions == null || questions.Count == 0)
+            {
+                Console.WriteLine("Aucune question disponible.");
+                return;
+            }
+
+            // Générer une instance de la classe Random
             Random random = new();
 
             // Utiliser la méthode .Next() pour choisir un index entre 0 et le nombre total de questions grâce à l'instance random
             int randomIndex = random.Next(questions.Count);
 
+            Question currentQuestion = questions[randomIndex];
+
             // Afficher la question sélectionnée aléatoirement
-            Console.WriteLine(questions[randomIndex].QuestionText);
+            Console.WriteLine(currentQuestion.QuestionText);
 
             // Afficher chaque option de la question sélectionnée aléatoirement
-            for (int index = 0; index < questions[randomIndex].Options.Count; index++)
+            for (int index = 0; index < currentQuestion.Options.Count; index++)
             {
-                Console.WriteLine($"{index + 1}. {questions[randomIndex].Options[index]}");
+                Console.WriteLine($"{index + 1}. {currentQuestion.Options[index]}");
             }
+
+            Response.Verify(currentQuestion);
         }
+
+
+
+        // Méthode GetByCategory
+
+
     }
 }

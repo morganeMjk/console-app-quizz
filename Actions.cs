@@ -28,29 +28,40 @@ public static class Actions
     public static void Select(List<string> actions)
     {
         // Récupérer le choix de l'utilisateur
-        var selectedAction = Console.ReadLine();
+        // creer bool false, tant que false on boucle. Si ok on passe en true
 
-        if (!int.TryParse(selectedAction, out int selectedActionInt) || selectedActionInt < 0 || selectedActionInt > actions.Count)
+        bool verifyAction = false;
+
+        while (!verifyAction)
         {
-            Console.WriteLine("Erreur : Veuillez selectionner une action valide");
-        }
-        else
-        {
-            if (selectedActionInt == 1)
+            var selectedAction = Console.ReadLine();
+            int.TryParse(selectedAction, out int selectedActionInt);
+            if (selectedActionInt <= 0 || selectedActionInt > actions.Count)
             {
-                var allQuestions = Questions.FetchAll();
-                QuizzActions.Start(allQuestions);
+                Console.WriteLine("Erreur : Veuillez selectionner une action valide");
+                GetAll();
             }
-
-            // else if (selectedActionInt == 2)
-            // {
-            //     var questionsByCategory = Questions.GetByCategory();
-            //     QuizzActions.StartQuizz(questionsByCategory);
-            // }
-            
             else
             {
-                Console.WriteLine("A bientôt");
+                verifyAction = true;
+
+                // Si le choix de l'utilisateur = 1, il est redirigé vers le début du quizz aléatoire
+                if (selectedActionInt == 1)
+                {
+                    var allQuestions = Questions.FetchAll();
+                    QuizzActions.Start(allQuestions);
+                }
+
+                // else if (selectedActionInt == 2)
+                // {
+                //     var questionsByCategory = Questions.GetByCategory();
+                //     QuizzActions.StartQuizz(questionsByCategory);
+                // }
+
+                else
+                {
+                    Console.WriteLine("A bientôt");
+                }
             }
         }
     }
