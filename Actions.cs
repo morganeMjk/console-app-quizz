@@ -52,11 +52,10 @@ public static class Actions
                     QuizzActions.Start(allQuestions);
                 }
 
-                // else if (selectedActionInt == 2)
-                // {
-                //     var questionsByCategory = Questions.GetByCategory();
-                //     QuizzActions.StartQuizz(questionsByCategory);
-                // }
+                else if (selectedActionInt == 2)
+                {
+                    var categories = GetCategories();
+                }
 
                 else
                 {
@@ -64,5 +63,18 @@ public static class Actions
                 }
             }
         }
+    }
+
+    public static List<string> GetCategories()
+    {
+        // Définir & afficher les différentes actions possibles pour l'utilisateur
+        var categories = new List<string> { "C#", "Les raccourcis VS Code", "Les commandes" };
+
+        foreach (var category in categories)
+        {
+            Console.WriteLine($"{categories.IndexOf(category) + 1}. {category}");
+        }
+
+        return categories;
     }
 }
