@@ -12,34 +12,20 @@ Pour lancer le projet ...
 
 # Les étapes de mon jeu de quizz :
 
-Pour se faciliter la vie, on a au début une seule catégorie. Chaque titre et sous titre de ce readme.md doit être transformé en méthode.
+## Accueillir le joueur et lui proposer de faire un choix parmis une liste d'action
 
-### Récupérer la liste des questions depuis le fichier CSV
+## Récupérer et filtrer la liste des questions à présenter à l'utilisateur depuis un fichier .csv
 
-Quelle est la structure de ma liste de questions ?
- - **Les différents type de collection**
+## Démarrage du quizz
 
-1. List<>
-2. Dictionnary<>
-3. string[]
+### Initialisation du score
 
-Si on fait un tableau de string pour lister les intitulés, comment lier chaque question à ses réponses ?
-Il est temps de construire des classes : une classe Question qui contient une liste de réponse.
+### Créer un cycle de 3 questions
+- Une question est choisi aléatoirement parmis la liste d'origine et est affichée à l'utilisateur
+- La réponse de l'utilisateur est récupérée
+- Vérification de la validité de la réponse de l'utilisateur par rapport à la réponse attendue
+- En cas de bonne réponse, le score le l'utilisateur est incrémenté
 
-## Acceuillir le joueur
-
-<!-- ## Demander la catégorie (dans un second temps) et filtrer la liste des questions -->
-
-## Parcourir les questions (boucle)
-Pour chacune d'entre elles
-1. **Poser la question**
-
-2. **Donner les réponses possibles**
-
-3. **Vérifier si la réponse est bonne/mauvaise/une erreur**
-
-4. **Informer l'utilisateur du résultat et afficher son score**
-
-5. **Boucler**
-
-## Afficher un message d'au revoir avec le score lorsque l'ensemble des questions ont été posées
+### Une fois ce cycle terminé, le quiz est terminé
+- L'utilisateur a accès à son score
+- Il a le choix entre retourner au menu principal ou quitter l'application
