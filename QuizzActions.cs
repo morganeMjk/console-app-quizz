@@ -13,21 +13,29 @@ public static class QuizzActions
         // Initialiser le score de l'utilisateur
         int score = 0;
 
-        // Boucle pour poser trois questions
-        for (int i = 0; i < 3 && questions.Count > 0; i++)
+        if (questions == null || questions.Count == 0)
         {
-            // Doit retourner la réponse de l'utilisateur
-            var currentQuestion = Questions.GetRandomOne(questions);
-            var userResponse = Console.ReadLine();
-
-            bool isCorrect = Response.Verify(currentQuestion, userResponse);
-
-            if (isCorrect)
-            {
-                score++;
-            }
+            Console.WriteLine("Aucune question disponible.");
+            Console.ReadLine();
         }
-        Finish(score);
+        else
+        {
+            // Boucle pour poser trois questions
+            for (int i = 0; i < 3 && questions.Count > 0; i++)
+            {
+                // Doit retourner la réponse de l'utilisateur
+                var currentQuestion = Questions.GetRandomOne(questions);
+                var userResponse = Console.ReadLine();
+
+                bool isCorrect = Response.Verify(currentQuestion, userResponse);
+
+                if (isCorrect)
+                {
+                    score++;
+                }
+            }
+            Finish(score);
+        }
     }
 
 

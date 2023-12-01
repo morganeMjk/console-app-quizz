@@ -62,34 +62,47 @@ namespace Quizz
 
 
         // Méthode GetRandomOne
-        public static Question GetRandomOne(List<Question> questions)
+        public static Question? GetRandomOne(List<Question> questions)
         {
             // Vérifier la nullité et la validité de la liste de questions
             if (questions == null || questions.Count == 0)
             {
                 Console.WriteLine("Aucune question disponible.");
+                Console.ReadLine();
+                return null;
             }
-
-            // Générer une instance de la classe Random
-            Random random = new();
-
-            // Utiliser la méthode .Next() pour choisir un index entre 0 et le nombre total de questions grâce à l'instance random
-            int randomIndex = random.Next(questions.Count);
-
-            Question currentQuestion = questions[randomIndex];
-
-            // Afficher la question sélectionnée aléatoirement
-            Console.WriteLine(currentQuestion.QuestionText);
-
-            // Afficher chaque option de la question sélectionnée aléatoirement
-            for (int index = 0; index < currentQuestion.Options.Count; index++)
+            else
             {
-                Console.WriteLine($"{index + 1}. {currentQuestion.Options[index]}");
+                // Générer une instance de la classe Random
+                Random random = new();
+
+                // Utiliser la méthode .Next() pour choisir un index entre 0 et le nombre total de questions grâce à l'instance random
+                int randomIndex = random.Next(questions.Count);
+
+                Question currentQuestion = questions[randomIndex];
+
+                // Afficher la question sélectionnée aléatoirement
+                Console.WriteLine(currentQuestion.QuestionText);
+
+                if (currentQuestion.Options == null || currentQuestion.Options.Count == 0)
+                {
+                    Console.WriteLine("Aucune option disponible.");
+                    Console.ReadLine();
+                    return null;
+                }
+                else
+                {
+                    // Afficher chaque option de la question sélectionnée aléatoirement
+                    for (int index = 0; index < currentQuestion.Options.Count; index++)
+                    {
+                        Console.WriteLine($"{index + 1}. {currentQuestion.Options[index]}");
+                    }
+
+                    questions.Remove(currentQuestion);
+
+                    return currentQuestion;
+                }
             }
-
-            questions.Remove(currentQuestion);
-
-            return currentQuestion;
         }
 
 
