@@ -39,29 +39,45 @@ public static class QuizzActions
         // Afficher le score après avoir posé toutes les questions
         Console.WriteLine($"Votre score final : {score} \n");
         Console.WriteLine("Que souhaitez-vous faire ?");
-
-        // Définir & afficher les différents choix possibles pour l'utilisateur
         var nextActions = new List<string> { "Retourner au menu principal", "Quitter" };
         foreach (var nextAction in nextActions)
         {
             Console.WriteLine($"{nextActions.IndexOf(nextAction) + 1}. {nextAction}");
         }
 
-        var selectedAction = Console.ReadLine();
-        Console.Clear();
+        bool verifyNextAction = false;
 
-        // Si le choix de l'utilisateur = 1, l'utilisateur est redirigé vers le menu principal
-        if (int.TryParse(selectedAction, out int selectedActionInt) && selectedActionInt == 1)
+        while (!verifyNextAction)
         {
-            Console.WriteLine("Que souhaitez-vous faire ?");
-            var actions = Actions.GetAll();
-            Actions.Verify(actions);
-        }
-        else if (selectedActionInt == 2)
-        {
-            Console.WriteLine("A bientôt");
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            var nextAction = Console.ReadLine();
+
+            int.TryParse(nextAction, out int nextActionInt);
+
+            if (nextActionInt <= 0 || nextActionInt > nextActions.Count)
+            {
+                Console.ForegroundColor = ConsoleColor.Red; // Set text color to red
+                Console.WriteLine("Erreur : Veuillez selectionner une action valide");
+                Console.ResetColor(); // Reset text color to default
+            }
+            else
+            {
+                verifyNextAction = true;
+                Console.Clear();
+
+                // Si le choix de l'utilisateur = 1, l'utilisateur est redirigé vers le menu principal
+                if (nextActionInt == 1)
+                {
+                    Console.WriteLine("Que souhaitez-vous faire ?");
+                    var actions = Actions.GetAll();
+                    Actions.Verify(actions);
+                }
+                else if (nextActionInt == 2)
+                {
+                    Console.WriteLine("A bientôt");
+                    Console.WriteLine("Press any key to exit...");
+                    Console.ReadKey();
+                }
+            }
         }
     }
 }
