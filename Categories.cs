@@ -36,6 +36,7 @@ public static class Categories
             {
                 verifyCategory = true;
                 var questionsByCategory = Questions.GetByCategory(selectedCategoryInt);
+                Console.Clear();
                 QuizzActions.Start(questionsByCategory);
             }
         }

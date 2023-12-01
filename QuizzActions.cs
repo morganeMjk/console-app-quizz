@@ -57,8 +57,11 @@ public static class QuizzActions
             var actions = Actions.GetAll();
             Actions.Select(actions);
         }
-
-        // Ajouter cette ligne pour maintenir la console ouverte
-        Console.ReadLine();
+        else
+        {
+            Console.WriteLine("A bientôt");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
     }
 }
