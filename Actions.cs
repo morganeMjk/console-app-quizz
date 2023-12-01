@@ -61,6 +61,9 @@ public static class Actions
                 else
                 {
                     Console.WriteLine("A bientôt");
+                    Console.Clear();
+                    Console.WriteLine("Press any key to exit...");
+                    Console.ReadKey();
                 }
             }
         }
