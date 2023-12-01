@@ -14,12 +14,15 @@ public static class Response
         }
         else
         {
+            Console.Clear();
+
             // Vérifier si la réponse est correcte et incrémenter le score en cas de réponse correcte
             if (userResponseInt == currentQuestion.CorrectOptionIndex)
             {
                 Console.WriteLine("Bonne réponse :)");
                 Console.WriteLine("Appuyez sur une touche pour continuer");
                 Console.ReadLine();
+                Console.Clear();
                 return true;
             }
             else
@@ -27,6 +30,7 @@ public static class Response
                 Console.WriteLine("Mauvaise réponse :(");
                 Console.WriteLine("Appuyez sur une touche pour continuer");
                 Console.ReadLine();
+                Console.Clear();
                 return false;
             }
         }
