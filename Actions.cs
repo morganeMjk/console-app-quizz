@@ -36,9 +36,12 @@ public static class Actions
         {
             var selectedAction = Console.ReadLine();
             int.TryParse(selectedAction, out int selectedActionInt);
+            Console.Clear();
             if (selectedActionInt <= 0 || selectedActionInt > actions.Count)
             {
+                Console.ForegroundColor = ConsoleColor.Red; // Set text color to red
                 Console.WriteLine("Erreur : Veuillez selectionner une action valide");
+                Console.ResetColor(); // Reset text color to default
                 GetAll();
             }
             else
