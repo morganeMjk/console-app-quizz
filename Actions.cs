@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
 
 namespace Quizz;
 
@@ -25,7 +26,7 @@ public static class Actions
     /// <summary>
     /// Méthode Select
     /// </summary>
-    public static void Select(List<string> actions)
+    public static void Verify(List<string> actions)
     {
         // Récupérer le choix de l'utilisateur
         // creer bool false, tant que false on boucle. Si ok on passe en true
@@ -37,6 +38,7 @@ public static class Actions
             var selectedAction = Console.ReadLine();
             int.TryParse(selectedAction, out int selectedActionInt);
             Console.Clear();
+
             if (selectedActionInt <= 0 || selectedActionInt > actions.Count)
             {
                 Console.ForegroundColor = ConsoleColor.Red; // Set text color to red
@@ -44,6 +46,7 @@ public static class Actions
                 Console.ResetColor(); // Reset text color to default
                 GetAll();
             }
+
             else
             {
                 verifyAction = true;

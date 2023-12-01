@@ -55,9 +55,9 @@ public static class QuizzActions
         {
             Console.WriteLine("Que souhaitez-vous faire ?");
             var actions = Actions.GetAll();
-            Actions.Select(actions);
+            Actions.Verify(actions);
         }
-        else
+        else if (selectedActionInt == 2)
         {
             Console.WriteLine("A bientôt");
             Console.WriteLine("Press any key to exit...");

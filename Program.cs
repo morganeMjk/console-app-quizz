@@ -9,6 +9,6 @@ class Program
         Console.Write("Bienvenue ! ");
         Console.WriteLine("Que souhaitez vous faire ?");
         var actions = Actions.GetAll();
-        Actions.Select(actions);
+        Actions.Verify(actions);
     }
 }
