@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+
 
 namespace Quizz
 {
@@ -9,6 +11,7 @@ namespace Quizz
         private const int indexQuestionText = 0;
         private const int indexOptions = 1;
         private const int indexCorrectOption = 2;
+        private const int CategoryIndex = 3;
 
 
 
@@ -91,8 +94,46 @@ namespace Quizz
 
 
 
-        // Méthode GetByCategory
 
+        public static List<Question> GetByCategory(int category)
+        {
+            try
+            {
+                // Lire toutes les lignes du fichier CSV
+                var questions = File.ReadAllLines("questions.csv")
+                    .Select(line =>
+                    {
+                        // Diviser chaque élément d'une ligne en utilisant le point-virgule comme séparateur
+                        var parts = line.Split(';');
 
+                        // Vérifier que chaque ligne comporte bien 4 éléments (questions, choix, réponse, catégorie)
+                        if (parts.Length == 4 && int.Parse(parts[CategoryIndex]) == category)
+                        {
+                            // Créer une nouvelle question en suivant la classe Question
+                            return new Question
+                            {
+                                QuestionText = parts[indexQuestionText],
+                                Options = new List<string>(parts[indexOptions].Split('/')),
+                                CorrectOptionIndex = int.Parse(parts[indexCorrectOption]),
+                                CategoryIndex = int.Parse(parts[CategoryIndex])
+                            };
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    })
+                    .Where(question => question != null)
+                    .ToList();
+
+                return questions;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Erreur lors de la lecture du fichier CSV :");
+                Console.WriteLine(e.Message);
+                return new List<Question>();
+            }
+        }
     }
 }

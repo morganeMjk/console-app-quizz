@@ -1,17 +1,17 @@
-Qui peut accéder à un attribut protected d'une classe en C# ?;ses classes dérivées/sa mère/son père/toutes les classes du même domaine;1 ; 1
-Que permet le raccourci F9 sous Visual Studio Code ?;Mettre un signet/Mettre un point d'arrêt/Naviguer vers la définition;2 ; 2
-Quelle commande permet de vérifier la version installée du sdk de .net ?;dotnet -v/dotnet --list-sdks/dotnet version;2 ; 3
-Comment déclare-t-on une variable en C# ?;int x/float y/var z/string w;3 ;1
-Qu'est-ce que l'héritage en programmation orientée objet permet en C# ?;L'accès aux membres privés de la classe parent/La réutilisation du code/La définition de classes statiques/La surcharge des opérateurs; 2; 1
-Quelle est la fonction principale du mot-clé "using" en C# ?;Déclarer une variable/Importer un espace de noms/Allouer de la mémoire/Créer une instance d'objet; 2; 1
-Comment déclare-t-on une méthode statique en C# ?;static void myMethod()/void static myMethod()/myMethod() static void/void myMethod() static; 1; 1
-Quelle est la principale différence entre les listes et les tableaux en C# ?;Les listes ont une taille fixe/Les tableaux peuvent contenir des éléments de types différents/Les listes peuvent changer de taille dynamiquement/Les tableaux sont plus efficaces en termes de mémoire; 3; 1
-Comment sélectionne-t-on une ligne entière dans Visual Studio Code ?;Ctrl + L/Ctrl + Shift + L/Ctrl + Alt + L/Ctrl + Win + L; 1; 2
-Quelle est la commande pour formater le code dans Visual Studio Code ?;Ctrl + K, Ctrl + F/Ctrl + Shift + F/Ctrl + Alt + F/Ctrl + F, Ctrl + K; 2; 2
-Quel est le raccourci pour ouvrir la vue des extensions dans Visual Studio Code ?;Ctrl + E/Ctrl + Shift + X/Ctrl + Alt + E/Ctrl + Win + X; 2; 2
-Comment ferme-t-on toutes les fenêtres d'éditeur sauf celle actuellement sélectionnée dans Visual Studio Code ?;Ctrl + K, Ctrl + W/Ctrl + Shift + T/Ctrl + Alt + F4/Ctrl + F4; 1; 2
-Comment créer un nouveau répertoire (dossier) en ligne de commande ?;md newFolder/mkdir newFolder/create newFolder/newDir newFolder; 2; 3
-Quelle commande est utilisée pour afficher le contenu d'un répertoire en ligne de commande ?;showdir/list/dir/ls; 4; 3
-Comment supprime-t-on un fichier en ligne de commande ?;rm file.txt/del file.txt/delete file.txt/remove file.txt; 1; 3
-Quelle commande permet de changer le répertoire de travail en ligne de commande ?;cd/chdir/change/dir; 1; 3
-Comment renomme-t-on un fichier en ligne de commande ?;rename old.txt new.txt/mv old.txt new.txt/move old.txt new.txt/ren old.txt new.txt; 3; 3
+Qui peut accéder à un attribut protected d'une classe en C# ?;ses classes dérivées/sa mère/son père/toutes les classes du même domaine;1;1
+Que permet le raccourci F9 sous Visual Studio Code ?;Mettre un signet/Mettre un point d'arrêt/Naviguer vers la définition;2;2
+Quelle commande permet de vérifier la version installée du sdk de .net ?;dotnet -v/dotnet --list-sdks/dotnet version;2;3
+Comment déclare-t-on une variable en C# ?;int x/float y/var z/string w;3;1
+Qu'est-ce que l'héritage en programmation orientée objet permet en C# ?;L'accès aux membres privés de la classe parent/La réutilisation du code/La définition de classes statiques/La surcharge des opérateurs;2;1
+Quelle est la fonction principale du mot-clé "using" en C# ?;Déclarer une variable/Importer un espace de noms/Allouer de la mémoire/Créer une instance d'objet;2;1
+Comment déclare-t-on une méthode statique en C# ?;static void myMethod()/void static myMethod()/myMethod() static void/void myMethod() static;1;1
+Quelle est la principale différence entre les listes et les tableaux en C# ?;Les listes ont une taille fixe/Les tableaux peuvent contenir des éléments de types différents/Les listes peuvent changer de taille dynamiquement/Les tableaux sont plus efficaces en termes de mémoire;3;1
+Comment sélectionne-t-on une ligne entière dans Visual Studio Code ?;Ctrl + L/Ctrl + Shift + L/Ctrl + Alt + L/Ctrl + Win + L;1;2
+Quelle est la commande pour formater le code dans Visual Studio Code ?;Ctrl + K, Ctrl + F/Ctrl + Shift + F/Ctrl + Alt + F/Ctrl + F, Ctrl + K;2;2
+Quel est le raccourci pour ouvrir la vue des extensions dans Visual Studio Code ?;Ctrl + E/Ctrl + Shift + X/Ctrl + Alt + E/Ctrl + Win + X;2;2
+Comment ferme-t-on toutes les fenêtres d'éditeur sauf celle actuellement sélectionnée dans Visual Studio Code ?;Ctrl + K, Ctrl + W/Ctrl + Shift + T/Ctrl + Alt + F4/Ctrl + F4;1;2
+Comment créer un nouveau répertoire (dossier) en ligne de commande ?;md newFolder/mkdir newFolder/create newFolder/newDir newFolder;2;3
+Quelle commande est utilisée pour afficher le contenu d'un répertoire en ligne de commande ?;showdir/list/dir/ls;4;3
+Comment supprime-t-on un fichier en ligne de commande ?;rm file.txt/del file.txt/delete file.txt/remove file.txt;1;3
+Quelle commande permet de changer le répertoire de travail en ligne de commande ?;cd/chdir/change/dir;1;3
+Comment renomme-t-on un fichier en ligne de commande ?;rename old.txt new.txt/mv old.txt new.txt/move old.txt new.txt/ren old.txt new.txt;3;3
