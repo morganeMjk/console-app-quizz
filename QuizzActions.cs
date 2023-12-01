@@ -48,6 +48,7 @@ public static class QuizzActions
         }
 
         var selectedAction = Console.ReadLine();
+        Console.Clear();
 
         // Si le choix de l'utilisateur = 1, l'utilisateur est redirigé vers le menu principal
         if (int.TryParse(selectedAction, out int selectedActionInt) && selectedActionInt == 1)
