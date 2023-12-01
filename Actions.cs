@@ -48,12 +48,14 @@ public static class Actions
                 // Si le choix de l'utilisateur = 1, il est redirigé vers le début du quizz aléatoire
                 if (selectedActionInt == 1)
                 {
+                    Console.Clear();
                     var allQuestions = Questions.FetchAll();
                     QuizzActions.Start(allQuestions);
                 }
 
                 else if (selectedActionInt == 2)
                 {
+                    Console.Clear();
                     var categories = Categories.GetAll();
                     Categories.Select(categories);
                 }
